@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - ground
+  - findori
   layers:
   - Default
   - TransparentFX
