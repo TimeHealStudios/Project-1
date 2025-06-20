@@ -5,8 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - ground
+<<<<<<< HEAD
   - findori
   - bullet
+=======
+  - target
+  - Enemy
+>>>>>>> db97653f631134a782cfab183b5d1a72223d235c
   layers:
   - Default
   - TransparentFX
