@@ -17,8 +17,13 @@ public class MainMenuManager : MonoBehaviour
     {
         Time.timeScale = 0f;  // Freeze game time at start
         player.SetActive(false);  // Disable player controls
+
         startMenu.SetActive(true);
         weaponSelectMenu.SetActive(false);
+
+        // Show and unlock the cursor for the menu
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     // Called when "Start" button is clicked
@@ -44,7 +49,11 @@ public class MainMenuManager : MonoBehaviour
         weapon.transform.localPosition = new Vector3(0.2301598f, 1.182273f, 0.6010823f);
         weapon.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
-        // Hide weapon select menu, enable player and unfreeze game
+        // Hide and lock the cursor for gameplay
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Hide menus, enable player, unpause game
         weaponSelectMenu.SetActive(false);
         player.SetActive(true);
         Time.timeScale = 1f;
