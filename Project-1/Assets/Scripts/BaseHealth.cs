@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro; 
 
 public class BaseHealth : MonoBehaviour
@@ -8,7 +9,9 @@ public class BaseHealth : MonoBehaviour
     public GameObject gameOverUI;
 
     public TextMeshProUGUI BaseHealthText;   
-    public Image Health Bar;          
+    public TextMeshProUGUI healthText;
+    public Image healthBarFill;
+    public Image HealthBar;          
     void Start()
     {
         UpdateUI();
