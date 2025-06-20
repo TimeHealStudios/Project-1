@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public enum FireMode { SemiAuto, FullAuto }
@@ -12,10 +13,12 @@ public class Gun : MonoBehaviour
     public int magSize = 15;
     public float damage = 25f;
     public FireMode fireMode = FireMode.SemiAuto;
+    public float reloadTime = 1.5f;
 
     [Header("Ammo")]
     private int currentAmmo;
     private float nextFireTime = 0f;
+    private bool isReloading = false;
 
     [Header("UI")]
     private WeaponUI weaponUI;
@@ -28,8 +31,14 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (currentAmmo <= 0)
+        if (isReloading)
             return;
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
 
         bool canShoot = Time.time >= nextFireTime;
 
@@ -42,9 +51,9 @@ public class Gun : MonoBehaviour
             Fire();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magSize)
         {
-            Reload();
+            StartCoroutine(Reload());
         }
     }
 
@@ -70,22 +79,29 @@ public class Gun : MonoBehaviour
         UpdateUI();
     }
 
-    public void Reload()
+    IEnumerator Reload()
     {
+        isReloading = true;
+        Debug.Log("Reloading...");
+
+        // Optional: play reload animation or sound here
+
+        yield return new WaitForSeconds(reloadTime);
+
         currentAmmo = magSize;
+        isReloading = false;
+
         UpdateUI();
-        // Add animation/sound here if needed
     }
 
     void UpdateUI()
     {
         if (weaponUI != null)
         {
-            weaponUI.UpdateWeaponUI(gameObject.name, currentAmmo, magSize);
+            weaponUI.UpdateWeaponUI(gameObject.name.Replace("(Clone)", ""), currentAmmo, magSize);
         }
     }
 
-    // Call this after instantiating the weapon
     public void SetWeaponUI(WeaponUI ui)
     {
         weaponUI = ui;
