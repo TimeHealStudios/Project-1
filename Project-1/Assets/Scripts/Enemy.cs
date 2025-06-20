@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("target").transform;
     }
 
     // Update is called once per frame
