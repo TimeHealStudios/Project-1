@@ -408,8 +408,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2083167720}
   - {fileID: 11356235}
+  - {fileID: 2083167720}
   - {fileID: 1920346420}
   - {fileID: 1679706013}
   m_Father: {fileID: 0}
@@ -641,7 +641,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc252686f4ac234f9df0403f7f47bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  enemyPrefab: {fileID: 2287186013437588766, guid: df5bd43601f18b0468184997562bedda, type: 3}
+  enemyCount: 0
+  waveCount: 1
+  SpawnPoints:
+  - {fileID: 11356235}
+  - {fileID: 2083167720}
+  - {fileID: 1920346420}
+  - {fileID: 1679706013}
 --- !u!1 &1816827101
 GameObject:
   m_ObjectHideFlags: 0
