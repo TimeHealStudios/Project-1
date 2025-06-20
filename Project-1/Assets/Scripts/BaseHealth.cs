@@ -8,10 +8,8 @@ public class BaseHealth : MonoBehaviour
     public int health = 100;
     public GameObject gameOverUI;
 
-    public TextMeshProUGUI BaseHealthText;   
-    public TextMeshProUGUI healthText;
-    public Image healthBarFill;
-    public Image HealthBar;          
+    public TextMeshProUGUI healthText;  
+    public Image healthBarFill;           
     void Start()
     {
         UpdateUI();
@@ -40,8 +38,12 @@ public class BaseHealth : MonoBehaviour
 
     void TriggerGameOver()
     {
+        Debug.Log("GAME OVER! Activating panel");
         gameOverUI.SetActive(true);
         Time.timeScale = 0f;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void RestartGame()
@@ -54,7 +56,7 @@ public class BaseHealth : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            TakeDamage(20);
+            TakeDamage(100);
             Destroy(other.gameObject);
         }
     }
