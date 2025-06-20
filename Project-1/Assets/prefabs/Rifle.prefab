@@ -593,7 +593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7323290291155043476}
-  - component: {fileID: 7372585284482672522}
+  - component: {fileID: 8649857343270316062}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -618,7 +618,7 @@ Transform:
   - {fileID: 6550024934452560729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7372585284482672522
+--- !u!114 &8649857343270316062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,11 +627,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8473112981119288146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596f5145f84a0f947bb8b4d5ca9b806e, type: 3}
+  m_Script: {fileID: 11500000, guid: e6e22369de254074090866f431f4fb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8777777657405445163, guid: 565fc36d59272b14b9399bef44d878f0, type: 3}
   firePoint: {fileID: 6550024934452560729}
-  fireRate: 0.05
-  reloadTime: 1.5
-  magSize: 35
+  projectileSpeed: 20
+  fireRate: 0.2

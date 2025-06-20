@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3211962528110482171}
   - component: {fileID: 8652207041901271678}
   - component: {fileID: 1535861405939031385}
+  - component: {fileID: 8991385263573509880}
   m_Layer: 0
   m_Name: Water Bullet
   m_TagString: Untagged
@@ -123,5 +124,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4192ff7a14b6944a057befe52def70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
-  bullet: {fileID: 0}
+  speed: 40
+--- !u!114 &8991385263573509880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429640527536427290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8c72d3e65fb0841b1e54b8f1c79f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  speed: 20
+  lifeTime: 3
