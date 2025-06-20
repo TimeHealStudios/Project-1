@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
         if (damageNumberPrefab != null && damageNumberSpawnPoint != null)
         {
             GameObject dmgNumber = Instantiate(damageNumberPrefab, damageNumberSpawnPoint.position, Quaternion.identity);
-            FloatingDamageNumber floatScript = dmgNumber.GetComponent<FloatingDamageNumber>();
+            FloatingDamageNumber floatScript = dmgNumber.GetComponentInChildren<FloatingDamageNumber>();
 
             if (floatScript != null)
             {

@@ -5,51 +5,41 @@ public enum FireMode { SemiAuto, FullAuto }
 public class Gun : MonoBehaviour
 {
     [Header("Gun Settings")]
-    public GameObject projectilePrefab;      // Assign in Inspector
-    public Transform firePoint;              // Where the projectile spawns
+    public GameObject projectilePrefab;
+    public Transform firePoint;
     public float projectileSpeed = 20f;
-    public float fireRate = 0.2f;            // Time between shots
-    public int magSize = 15;                 // Magazine capacity
-    public float damage = 25f;               // Damage per bullet
+    public float fireRate = 0.2f;
+    public int magSize = 15;
+    public float damage = 25f;
     public FireMode fireMode = FireMode.SemiAuto;
 
     [Header("Ammo")]
-    public int currentAmmo;
+    private int currentAmmo;
+    private float nextFireTime = 0f;
 
     [Header("UI")]
-    public WeaponUI weaponUI;  // Assign in Inspector or dynamically
-
-    private float nextFireTime = 0f;
+    private WeaponUI weaponUI;
 
     void Start()
     {
-        currentAmmo = magSize;  // Start with full mag
+        currentAmmo = magSize;
         UpdateUI();
     }
 
     void Update()
     {
         if (currentAmmo <= 0)
-        {
-            // TODO: trigger reload here or block firing
             return;
-        }
 
         bool canShoot = Time.time >= nextFireTime;
 
-        if (fireMode == FireMode.FullAuto)
+        if (fireMode == FireMode.FullAuto && Input.GetMouseButton(0) && canShoot)
         {
-            if (Input.GetMouseButton(0) && canShoot)
-            {
-                Fire();
-            }
+            Fire();
         }
-        else // SemiAuto
+        else if (fireMode == FireMode.SemiAuto && Input.GetMouseButtonDown(0) && canShoot)
         {
-            if (Input.GetMouseButtonDown(0) && canShoot)
-            {
-                Fire();
-            }
+            Fire();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -84,7 +74,7 @@ public class Gun : MonoBehaviour
     {
         currentAmmo = magSize;
         UpdateUI();
-        // TODO: reload animations/sounds
+        // Add animation/sound here if needed
     }
 
     void UpdateUI()
@@ -93,5 +83,12 @@ public class Gun : MonoBehaviour
         {
             weaponUI.UpdateWeaponUI(gameObject.name, currentAmmo, magSize);
         }
+    }
+
+    // Call this after instantiating the weapon
+    public void SetWeaponUI(WeaponUI ui)
+    {
+        weaponUI = ui;
+        UpdateUI();
     }
 }

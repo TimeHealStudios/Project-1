@@ -1,6 +1,6 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -9,51 +9,55 @@ public class MainMenuManager : MonoBehaviour
     public GameObject weaponSelectMenu;
 
     [Header("Player & Weapon Setup")]
-    public GameObject player;                // Player GameObject to enable/disable
-    public Transform weaponHolder;           // The transform (usually camera or hand) where weapon will be parented
-    public GameObject[] weaponPrefabs;       // List of weapon prefabs (ShrimpGun, Rifle, etc.)
+    public GameObject player;
+    public Transform weaponHolder;
+    public GameObject[] weaponPrefabs;
+
+    [Header("UI References")]
+    public WeaponUI weaponUI; // Drag the WeaponUI Controller here in Inspector
 
     void Start()
     {
-        Time.timeScale = 0f;  // Freeze game time at start
-        player.SetActive(false);  // Disable player controls
+        Time.timeScale = 0f;
+        player.SetActive(false);
 
         startMenu.SetActive(true);
         weaponSelectMenu.SetActive(false);
 
-        // Show and unlock the cursor for the menu
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    // Called when "Start" button is clicked
     public void OnStartButton()
     {
         startMenu.SetActive(false);
         weaponSelectMenu.SetActive(true);
     }
 
-    // Called when player chooses a weapon (index corresponds to weaponPrefabs)
     public void OnChooseWeapon(int index)
     {
-        // Destroy old weapon(s) in weaponHolder so we don't stack
+        // Clear old weapons
         foreach (Transform child in weaponHolder)
         {
             Destroy(child.gameObject);
         }
 
-        // Instantiate selected weapon as child of weaponHolder
         GameObject weapon = Instantiate(weaponPrefabs[index], weaponHolder);
+        weapon.transform.localPosition = new Vector3(0.23f, 1.18f, 0.6f);
+        weapon.transform.localRotation = Quaternion.identity;
+        weapon.name = weaponPrefabs[index].name; // Removes (Clone)
 
-        // Reset local position and rotation so it aligns properly in hands
-        weapon.transform.localPosition = new Vector3(0.2301598f, 1.182273f, 0.6010823f);
-        weapon.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        // Assign UI
+        Gun gun = weapon.GetComponent<Gun>();
+        if (gun != null && weaponUI != null)
+        {
+            gun.SetWeaponUI(weaponUI);
+        }
 
-        // Hide and lock the cursor for gameplay
+        // Resume gameplay
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Hide menus, enable player, unpause game
         weaponSelectMenu.SetActive(false);
         player.SetActive(true);
         Time.timeScale = 1f;

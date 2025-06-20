@@ -46,15 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e22369de254074090866f431f4fb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1429640527536427290, guid: 389571748b907dc47bd2fbb3d8ee21e5, type: 3}
+  projectilePrefab: {fileID: 8777777657405445163, guid: 84051db5a836c884cb3600b811d19ef8, type: 3}
   firePoint: {fileID: 5262135497505083941}
   projectileSpeed: 20
   fireRate: 0.2
   magSize: 9
   damage: 25
   fireMode: 0
-  currentAmmo: 15
-  weaponUI: {fileID: 0}
 --- !u!1 &1769397904411918720
 GameObject:
   m_ObjectHideFlags: 0

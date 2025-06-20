@@ -1,37 +1,72 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class FloatingDamageNumber : MonoBehaviour
 {
-    public float floatSpeed = 1f;
-    public float fadeTime = 1f;
-
     private TextMeshProUGUI text;
     private Color startColor;
-    private float timer;
+    private float disappearTimer = 1f;
+    private float disappearSpeed = 3f;
+    private float floatSpeed = 1.5f;
+
+    private Transform mainCamera;
 
     void Awake()
     {
-        text = GetComponent<TextMeshProUGUI>();
-        startColor = text.color;
-    }
+        text = GetComponentInChildren<TextMeshProUGUI>();
+        if (text != null)
+        {
+            startColor = text.color;
+        }
+        else
+        {
+            Debug.LogWarning("No TextMeshProUGUI found on FloatingDamageNumber!");
+        }
 
-    public void SetDamage(int damage)
-    {
-        text.text = damage.ToString();
+        if (Camera.main != null)
+        {
+            mainCamera = Camera.main.transform;
+        }
+        else
+        {
+            Debug.LogWarning("No Main Camera found! Make sure your camera has the 'MainCamera' tag.");
+        }
     }
 
     void Update()
     {
+        // Float upward
         transform.position += Vector3.up * floatSpeed * Time.deltaTime;
 
-        timer += Time.deltaTime;
-        float alpha = Mathf.Lerp(1f, 0f, timer / fadeTime);
-        text.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
-
-        if (timer >= fadeTime)
+        // Billboard properly
+        if (mainCamera != null)
         {
-            Destroy(gameObject);
+            Vector3 direction = transform.position - mainCamera.position;
+            direction.y = 0; // Optional: keeps it upright
+            transform.forward = direction.normalized;
+        }
+
+        // Fade out
+        disappearTimer -= Time.deltaTime;
+        if (disappearTimer <= 0f && text != null)
+        {
+            Color color = text.color;
+            color.a = Mathf.MoveTowards(color.a, 0, disappearSpeed * Time.deltaTime);
+            text.color = color;
+
+            if (color.a <= 0f)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public void SetDamage(int damage)
+    {
+        if (text != null)
+        {
+            text.text = damage.ToString();
+            text.color = startColor;  // Reset color
         }
     }
 }
