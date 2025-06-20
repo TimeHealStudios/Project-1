@@ -50,6 +50,11 @@ MonoBehaviour:
   firePoint: {fileID: 5262135497505083941}
   projectileSpeed: 20
   fireRate: 0.2
+  magSize: 9
+  damage: 25
+  fireMode: 0
+  currentAmmo: 15
+  weaponUI: {fileID: 0}
 --- !u!1 &1769397904411918720
 GameObject:
   m_ObjectHideFlags: 0
