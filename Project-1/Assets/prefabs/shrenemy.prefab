@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1981084207644340739}
   - component: {fileID: 8644762291543461988}
   - component: {fileID: 5333314675183300040}
+  - component: {fileID: 2947480331042325795}
   m_Layer: 0
   m_Name: shrenemy
   m_TagString: Enemy
@@ -70,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf4344a3151c7b439923fb311f53612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1794689604295436639, guid: 02dc24dd664ecaa409ca7c642d903544, type: 3}
 --- !u!54 &8644762291543461988
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,6 +120,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &2947480331042325795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287186013437588766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e704b9d351ed44cb0124a6fdd5d1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &7093582753730463538
 GameObject:
   m_ObjectHideFlags: 0

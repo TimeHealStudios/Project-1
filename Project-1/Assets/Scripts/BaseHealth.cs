@@ -56,7 +56,7 @@ public class BaseHealth : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            TakeDamage(100);
+            TakeDamage(25);
             Destroy(other.gameObject);
         }
     }
