@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7626018762966663911
+--- !u!1 &5491459782386299985
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 27296147970497332}
-  - component: {fileID: 8245354976541984442}
-  - component: {fileID: 5828221491734936706}
-  - component: {fileID: 3798601552349563614}
-  - component: {fileID: 3617489888869090509}
-  - component: {fileID: 6315125786320326319}
+  - component: {fileID: 2702269216784493954}
+  - component: {fileID: 6308971954496204812}
+  - component: {fileID: 8431471515467598388}
+  - component: {fileID: 1249693675284741224}
+  - component: {fileID: 1716854256586273403}
+  - component: {fileID: 8233511728242325529}
   m_Layer: 0
-  m_Name: projectile1
+  m_Name: RevolverAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &27296147970497332
+--- !u!4 &2702269216784493954
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626018762966663911}
+  m_GameObject: {fileID: 5491459782386299985}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.0770365, y: 3.696546, z: 5.575767}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -2.0248704, y: -1.4189101, z: -4.2338314}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!33 &8245354976541984442
+--- !u!33 &6308971954496204812
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626018762966663911}
+  m_GameObject: {fileID: 5491459782386299985}
   m_Mesh: {fileID: -6900847669608530021, guid: cf06a524f9d9fc341943a85e6bc866d3, type: 3}
---- !u!23 &5828221491734936706
+--- !u!23 &8431471515467598388
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626018762966663911}
+  m_GameObject: {fileID: 5491459782386299985}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,31 +89,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3798601552349563614
+--- !u!114 &1249693675284741224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626018762966663911}
+  m_GameObject: {fileID: 5491459782386299985}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c8c72d3e65fb0841b1e54b8f1c79f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 55
   speed: 50
   lifeTime: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
---- !u!65 &3617489888869090509
+--- !u!65 &1716854256586273403
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626018762966663911}
+  m_GameObject: {fileID: 5491459782386299985}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -128,13 +128,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.004301605, y: 0.004236256, z: 0.022648763}
   m_Center: {x: 1.1641532e-10, y: 0.000045483117, z: 0.0019980348}
---- !u!54 &6315125786320326319
+--- !u!54 &8233511728242325529
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626018762966663911}
+  m_GameObject: {fileID: 5491459782386299985}
   serializedVersion: 5
   m_Mass: 0.1
   m_LinearDamping: 0
