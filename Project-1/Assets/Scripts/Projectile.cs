@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         {
             rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rb.useGravity = false;
-            rb.linearVelocity = transform.forward * speed;
+            rb.linearVelocity = transform.forward * speed;  
         }
 
         Destroy(gameObject, lifeTime);
